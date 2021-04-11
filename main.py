@@ -196,15 +196,14 @@ def handle_help_intent():
 def handle_query_intent(query):
 
     if not query or 'query' in convert_errors:
-        noresult = render_template('noresult')
-	return question(noresult)
+        return question('no results found, try another search query')
 
     data = ytdl.extract_info(f"ytsearch:{query}", download=False)
     search_results = data['entries']
 
     if not search_results:
         noresult = render_template('noresult')
-	return question(noresult)
+        return question(noresult)
 
     result = search_results[0]
     song_name = result['title']
@@ -213,11 +212,10 @@ def handle_query_intent(query):
     for format_ in result['formats']:
         if format_['ext'] == 'm4a':
             mp3_url = format_['url']
-	    playing = render_template('playing')
+            playing = render_template('playing', song_name=song_name, channel_name=channel_name)
             return audio(playing).play(mp3_url)
 
-    noresult = render_template('noresult')
-	return question(noresult)
+    return question('noresult')
 
 
 @app.route('/<int:post_id>')
