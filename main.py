@@ -141,8 +141,6 @@ def logstream():
 
 ask = Ask(app, '/api')
 
-logging.getLogger('flask_ask').setLevel(logging.DEBUG)
-
 
 @ask.launch
 def launch():
