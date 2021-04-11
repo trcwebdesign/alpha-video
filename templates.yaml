@@ -11,7 +11,7 @@ fallback: you have to start your command with play, search, or look for
 
 noresult: no results found, try another search query
 
-playing: now playing {song_name} by {channel_name}
+playing: now playing {{song_name}} by {{channel_name}}
 
 card_title: Session
 
