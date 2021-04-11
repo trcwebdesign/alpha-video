@@ -176,17 +176,20 @@ def handle_pause_intent():
 
 @ask.intent('AMAZON.ResumeIntent')
 def resume():
-    return audio('Resuming.').resume()
+    resume = render_template('resume')
+    return audio(resume).resume()
 
 
 @ask.intent('AMAZON.FallbackIntent')
 def handle_fallback_intent():
-    return question('you have to start your command with play, search, or look for')
+    fallback = render_template('fallback')
+    return question(fallback)
 
 
 @ask.intent('AMAZON.HelpIntent')
 def handle_help_intent():
-    return question('you have to start your command with play, search, or look for')
+    fallback = render_template('fallback')
+    return question(fallback)
 
 
 @ask.intent('QueryIntent', mapping={'query': 'Query'})
