@@ -1,0 +1,11 @@
+welcome: Say an artist and/or song name
+
+stop: okay
+
+pause: Pausing Music
+
+resume: Resuming
+
+fallback: you have to start your command with play, search, or look for
+
+
