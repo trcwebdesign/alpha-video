@@ -158,17 +158,20 @@ def session_ended():
 
 @ask.intent('AMAZON.StopIntent')
 def handle_stop_intent():
-    return statement('Okay')
+    stop = render_template('stop')
+    return statement(stop)
 
 
 @ask.intent('AMAZON.CancelIntent')
 def handle_stop_intent():
-    return statement('Okay')
+    stop = render_template('stop')
+    return statement(stop)
 
 
 @ask.intent('AMAZON.PauseIntent')
 def handle_pause_intent():
-    return audio('Stopping music').stop()
+    pause = render_template('pause')
+    return audio(pause).stop()
 
 
 @ask.intent('AMAZON.ResumeIntent')
