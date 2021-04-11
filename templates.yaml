@@ -1,0 +1,24 @@
+welcome: Say an artist and/or song name
+welcome_de_DE: Sage einen Künstler und / oder Songnamen
+
+stop: okay
+stop_de_DE: Okay
+
+pause: Pausing Music
+pause_de_DE: Wiedergabe beendet
+
+resume: Resuming
+resume_de_DE: Wiedergabe wird fortgesetzt
+
+fallback: you have to start your command with play, search, or look for
+fallback_de_DE: Der Befehl muss mit Spiele oder Suche nach beginnen
+
+noresult: no results found, try another search query
+noresult_de_DE: Keine Ergebnisse gefunden. Versuche es mit einer anderen Suchabfrage
+
+playing: now playing {{song_name}} by {{channel_name}}
+playing_de_DE: Jetzt läuft {song_name} Von {channel_name}
+
+card_title: Alpha-Video
+
+
