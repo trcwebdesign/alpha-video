@@ -12,3 +12,5 @@ noresult: no results found, try another search query
 
 playing: now playing {song_name} by {channel_name}
 
+card_title: Session
+
