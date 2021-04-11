@@ -1,4 +1,4 @@
-FROM andrewstech/alpha-video-baseplate:dev
+FROM andrewstech/alpha-video-baseplate:latest
 WORKDIR /app
 COPY entrypoint.sh entrypoint.sh
 RUN chmod 777 entrypoint.sh
