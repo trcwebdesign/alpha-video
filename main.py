@@ -146,7 +146,9 @@ logging.getLogger('flask_ask').setLevel(logging.DEBUG)
 
 @ask.launch
 def launch():
-    return question('Say an artist and/or song name')
+    card_title = render_template('card_title')
+    question_text = render_template('welcome')
+    return question(question_text).simple_card(card_title, question_text)
 
 
 @ask.session_ended
