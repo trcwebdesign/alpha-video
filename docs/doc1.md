@@ -5,8 +5,6 @@ sidebar_label: About
 slug: /
 ---
 
-![Uptime](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/andrewstech/service-status/master/api/diy-youtube-for-alexa/uptime.json)
-
 
 
 :::tip 
