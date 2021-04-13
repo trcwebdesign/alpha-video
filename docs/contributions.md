@@ -13,4 +13,6 @@ slug: /contributions
 
 [Patrickbs96](https://github.com/patrickbs96) - Translated skill to German language
 
+[Cjddiaz](https://www.twitch.tv/cjddiaz) - Translated skill to Spanish language
+
 
