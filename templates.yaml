@@ -1,23 +1,51 @@
 welcome: Say an artist and/or song name
 welcome_de_DE: Sage einen Künstler und / oder Songnamen
+welcome_es_ES: Di el nombre de un artista o una canción
+welcome_es_MX: Di el nombre de un artista o una canción
+welcome_es_US: Di el nombre de un artista o una canción
+
+
 
 stop: okay
 stop_de_DE: Okay
+stop_es_ES: Está bien
+stop_es_MX: Está bien
+stop_es_US: Está bien
+
 
 pause: Pausing Music
 pause_de_DE: Wiedergabe beendet
+pause_es_ES: Detén la música
+pause_es_MX: Detén la música
+pause_es_US: Detén la música
+
+
 
 resume: Resuming
 resume_de_DE: Wiedergabe wird fortgesetzt
+resume_es_ES: Reanudando
+resume_es_MX: Reanudando
+resume_es_US: Reanudando
 
 fallback: you have to start your command with play, search, or look for
 fallback_de_DE: Der Befehl muss mit Spiele oder Suche nach beginnen
+fallback_es_ES: Debes iniciar el comando diciendo reproduce, busca, o pon esta canción
+fallback_es_MX: Debes iniciar el comando diciendo reproduce, busca, o pon esta canción
+fallback_es_US: Debes iniciar el comando diciendo reproduce, busca, o pon esta canción
+
 
 noresult: no results found, try another search query
 noresult_de_DE: Keine Ergebnisse gefunden. Versuche es mit einer anderen Suchabfrage
+noresult_es_ES: No se ha encontrado ningún resultado, intenta con otra búsqueda
+noresult_es_MX: No se ha encontrado ningún resultado, intenta con otra búsqueda
+noresult_es_US: No se ha encontrado ningún resultado, intenta con otra búsqueda
+
 
 playing: now playing {{song_name}} by {{channel_name}}
-playing_de_DE: Jetzt läuft {song_name} Von {channel_name}
+playing_de_DE: Jetzt läuft {{song_name}} Von {{channel_name}}
+playing_es_ES: Reproduciendo ahora {{song_name}} Por {{channel_name}}
+playing_es_MX: Reproduciendo ahora {{song_name}} Por {{channel_name}}
+playing_es_US: Reproduciendo ahora {{song_name}} Por {{channel_name}}
 
 card_title: Alpha-Video
 
