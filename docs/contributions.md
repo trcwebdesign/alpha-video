@@ -15,4 +15,6 @@ slug: /contributions
 
 [Cjddiaz](https://www.twitch.tv/cjddiaz) - Translated skill to Spanish language
 
+[Qree's](https://www.youtube.com/channel/UCT2UObddu_7e-C9gTtA4gog) - Translated skill to Italian language
+
 
