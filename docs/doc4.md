@@ -14,7 +14,7 @@ Once done click the save endpoints button. Now on the left click on interfaces. 
 
 Now on the left click Interaction Model this will open a small menu on the side. Click jason JSON Editor this will take you to the Editor page. 
 
-We now need to upload our interaction.json file, currently only English, German and Spanish are avalible. Click in the box and delete all the text.
+We now need to upload our interaction.json file, currently only English, German, Italian and Spanish are avalible. Click in the box and delete all the text.
 
 :::tip 
 If you are using windows you can press CTRL + A to select all the text the delete key to remove it.
