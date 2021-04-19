@@ -60,7 +60,7 @@ app.config.from_mapping(
 )
 
 
-print("By AndrewsTech")
+print("In a web browser visit http://localhost:5000")
 
 
 @app.route('/')
