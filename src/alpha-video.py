@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, url_for, flash, redirect, Response
 import sentry_sdk
-from sentry_sdk.integrations.flask import FlaskIntegration
 from pygtail import Pygtail
 from flask_ask import Ask, question, statement, convert_errors, audio
 from youtube_dl import YoutubeDL
@@ -14,8 +13,7 @@ import time
 
 
 sentry_sdk.init(
-    dsn="https://d781c09d67f34a05b2b2d89193f4f2a0@o575799.ingest.sentry.io/5728581",
-    integrations=[FlaskIntegration()],
+    "https://d781c09d67f34a05b2b2d89193f4f2a0@o575799.ingest.sentry.io/5728581",
 
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for performance monitoring.
