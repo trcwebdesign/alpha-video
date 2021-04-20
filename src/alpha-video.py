@@ -17,9 +17,7 @@ ip = '0.0.0.0'  # System Ip
 host = '0.0.0.0'  # doesn't require anything else since we're using ngrok
 port = 5000  # may want to check and make sure this port isn't being used by anything else
 
-LOG_FILE = 'app.log'
-log = logging.getLogger('__name__')
-logging.basicConfig(filename=LOG_FILE, level=logging.DEBUG)
+
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
@@ -60,7 +58,7 @@ app.config.from_mapping(
 )
 
 
-print("By AndrewsTech")
+print("In a web browser visit http://localhost:5000 !")
 
 
 @app.route('/')
