@@ -88,6 +88,11 @@ def progress():
             time.sleep(0.5)
     return Response(generate(), mimetype= 'text/event-stream')
 
+
+@app.route('/debug-sentry')
+def trigger_error():
+    division_by_zero = 1 / 0
+
 @app.route('/create', methods=('GET', 'POST'))
 def create():
     if request.method == 'POST':
