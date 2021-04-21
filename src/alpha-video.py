@@ -37,7 +37,9 @@ ask = Ask(app, '/api')
 
 @ask.launch
 def launch():
-	return question('Say an artist and/or song name')
+	card_title = render_template('card_title')
+	question_text = render_template('welcome')
+	return question(question_text).simple_card(card_title, question_text)
 
 
 @ask.session_ended
@@ -47,41 +49,64 @@ def session_ended():
 
 @ask.intent('AMAZON.StopIntent')
 def handle_stop_intent():
-	return statement('Okay')
+    stop = render_template('stop')
+    return statement(stop)
+
+
+@ask.intent('AMAZON.CancelIntent')
+def handle_stop_intent():
+    stop = render_template('stop')
+    return statement(stop)
 
 
 @ask.intent('AMAZON.PauseIntent')
 def handle_pause_intent():
-	return audio('Stopping music').stop()
+    pause = render_template('pause')
+    return audio(pause).stop()
+
+
+@ask.intent('AMAZON.ResumeIntent')
+def resume():
+    resume = render_template('resume')
+    return audio(resume).resume()
 
 
 @ask.intent('AMAZON.FallbackIntent')
 def handle_fallback_intent():
-	return question('you have to start your command with play, search, or look for')
+    fallback = render_template('fallback')
+    return question(fallback)
+
+
+@ask.intent('AMAZON.HelpIntent')
+def handle_help_intent():
+    fallback = render_template('fallback')
+    return question(fallback)
 
 
 @ask.intent('QueryIntent', mapping={'query': 'Query'})
 def handle_query_intent(query):
 
-	if not query or 'query' in convert_errors:
-		return question('Say an artist and/or song name')
+    if not query or 'query' in convert_errors:
+        return question('no results found, try another search query')
 
-	data = ytdl.extract_info(f"ytsearch:{query}", download=False)
-	search_results = data['entries']
+    data = ytdl.extract_info(f"ytsearch:{query}", download=False)
+    search_results = data['entries']
 
-	if not search_results:
-		return question('no results found, try another search query')
+    if not search_results:
+        noresult = render_template('noresult')
+        return question(noresult)
 
-	result = search_results[0]
-	song_name = result['title']
-	channel_name = result['uploader']
+    result = search_results[0]
+    song_name = result['title']
+    channel_name = result['uploader']
 
-	for format_ in result['formats']:
-		if format_['ext'] == 'm4a':
-			mp3_url = format_['url']
-			return audio(f'now playing {song_name} by {channel_name}').play(mp3_url)
+    for format_ in result['formats']:
+        if format_['ext'] == 'm4a':
+            mp3_url = format_['url']
+            playing = render_template('playing', song_name=song_name, channel_name=channel_name)
+            return audio(playing).play(mp3_url)
 
-	return question('no results found, try another search query')
+    return question('noresult')
 
 
 app.run(host=host, port=port)
