@@ -48,7 +48,7 @@ noresult_es_US: No se ha encontrado ningún resultado, intenta con otra búsqued
 noresult_it_IT: nessun risultato, prova un'altro termine di ricerca
 
 
-playing: now playing {{song_name}} by {{channel_name}}
+playing: now playing {{song_name}} by {{channel_name}} on youtube
 playing_de_DE: Jetzt läuft {{song_name}} Von {{channel_name}}
 playing_es_ES: Reproduciendo ahora {{song_name}} Por {{channel_name}}
 playing_es_MX: Reproduciendo ahora {{song_name}} Por {{channel_name}}
