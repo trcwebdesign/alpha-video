@@ -82,7 +82,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} youtube-Diy,  Built with Docusaurus and hosted on Github.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Unofficial-Skills.`,
     },
   },
   presets: [
