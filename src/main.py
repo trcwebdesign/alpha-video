@@ -33,20 +33,6 @@ LOG_FILE = 'app.log'
 log = logging.getLogger('__name__')
 logging.basicConfig(filename=LOG_FILE, level=logging.DEBUG)
 
-def get_db_connection():
-    conn = sqlite3.connect('database.db')
-    conn.row_factory = sqlite3.Row
-    return conn
-
-
-def get_post(post_id):
-    conn = get_db_connection()
-    post = conn.execute('SELECT * FROM posts WHERE id = ?',
-                        (post_id,)).fetchone()
-    conn.close()
-    if post is None:
-        abort(404)
-    return post
 
 
 ytdl_options = {
@@ -71,84 +57,10 @@ app.config.from_mapping(
         BASE_URL="http://localhost:5000",
 )
 
-ascii_banner = pyfiglet.figlet_format("ALPHA VIDEO")
-print(ascii_banner)
+
 print("By AndrewsTech")
 
 
-@app.route('/')
-def index():
-    conn = get_db_connection()
-    posts = conn.execute('SELECT * FROM posts').fetchall()
-    conn.close()
-    return render_template('index.html', posts=posts)
-
-@app.route('/progress')
-def progress():
-    def generate():
-        x = 0
-        while x <= 100:
-            yield "data:" + str(x) + "\n\n"
-            x = x + 10
-            time.sleep(0.5)
-    return Response(generate(), mimetype= 'text/event-stream')
-
-@app.route('/create', methods=('GET', 'POST'))
-def create():
-    if request.method == 'POST':
-        title = request.form['title']
-        content = request.form['content']
-
-        if not title:
-            flash('Title is required!')
-        else:
-            conn = get_db_connection()
-            conn.execute('INSERT INTO posts (title, content) VALUES (?, ?)',
-                         (title, content))
-            conn.commit()
-            conn.close()
-            return redirect(url_for('index'))
-
-    return render_template('create.html')
-
-
-@app.route('/<int:id>/delete', methods=('GET',))
-def delete(id):
-    post = get_post(id)
-    conn = get_db_connection()
-    conn.execute('DELETE FROM posts WHERE id = ?', (id,))
-    conn.commit()
-    conn.close()
-    flash('"{}" was successfully deleted!'.format(post['title']))
-    return redirect(url_for('index'))
-
-
-@app.route('/log')
-def progress_log():
-	def generate():
-		for line in Pygtail(LOG_FILE, every_n=1):
-			yield "data:" + str(line) + "\n\n"
-			time.sleep(0.5)
-	return Response(generate(), mimetype= 'text/event-stream')
-
-@app.route('/url')
-def url_pro():
-    with open("/tmp/supervisord.log", "r") as f:
-        content = f.read()
-    return render_template('url.html', content=content)
-
-@app.route('/env')
-def show_env():
-	log.info("route =>'/env' - hit")
-	env = {}
-	for k,v in request.environ.items(): 
-		env[k] = str(v)
-	log.info("route =>'/env' [env]:\n%s" % env)
-	return env
-
-@app.route("/logs", methods=["GET"])
-def logstream():
-    return render_template('logs.html')
 
 
 ask = Ask(app, '/api')
