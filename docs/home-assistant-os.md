@@ -9,6 +9,6 @@ To Install on Home Assistant OS (HASSIO) open the Supervisor tab. From there go 
 Scroll down till you see a section called ``` Unofficial-skills ``` and you should see ALpha-Video in that catagory.
 
 
-:::tip Custom domains are not supported currently. The config options are not linked. :::
+:::tip Custom domains are not supported currently. The config options are not linked :::
 
 You can find your endpoint/Url in the logs of the addon.
