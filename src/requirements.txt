@@ -8,3 +8,4 @@ flask-ask @ https://github.com/unofficial-skills/alpha-video-modded-flask-ask/ar
 pygtail
 setuptools
 pyinstaller @ https://github.com/pyinstaller/pyinstaller/archive/develop.zip
+sentry-sdk[flask]
