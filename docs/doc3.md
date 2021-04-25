@@ -9,6 +9,8 @@ Once Docker is fully installed and running. Open a terminal on your device. I us
 
 ``` docker run -d --restart unless-stopped --name alpha-video -p 5000:5000 -e subdomain=changeme andrewstech/alpha-video:latest ```
 
+:::tip
+To use on a raspberry pi zero or a armv6 device change the end of the command from latest to zero :::
 
 That command downloads the latest version of the code and runs it in a virtual environment.
 
