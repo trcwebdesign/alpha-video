@@ -4,7 +4,7 @@
 block_cipher = None
 
 
-a = Analysis(['alpha-video.py'],
+a = Analysis(['main.py'],
              pathex=['C:\\Users\\andrew\\alpha-video'],
              binaries=[],
              datas=[('*', '.')],
