@@ -9,7 +9,6 @@ import datetime
 import os
 import sys
 import time
-import pyfiglet
 import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
 
@@ -70,8 +69,7 @@ app.config.from_mapping(
         BASE_URL="http://localhost:5000",
 )
 
-ascii_banner = pyfiglet.figlet_format("ALPHA VIDEO")
-print(ascii_banner)
+
 print("By AndrewsTech")
 
 
