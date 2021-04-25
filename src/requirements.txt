@@ -4,7 +4,7 @@ PyYAML==3.12
 six==1.11.0
 Werkzeug==0.16.1
 youtube_dl 
-flask-ask @ https://github.com/unofficial-skills/flask-ask-alpha-video/archive/refs/heads/master.zip
+flask-ask @ https://github.com/unofficial-skills/alpha-video-modded-flask-ask/archive/refs/heads/master.zip
 pygtail
 setuptools
 pyinstaller @ https://github.com/pyinstaller/pyinstaller/archive/develop.zip
