@@ -6,7 +6,7 @@ assets:
   repository:
     type: blob.asset
     data:
-      url: 'https://github.com/unofficial-skills/youtube-alexa-python'
+      url: 'https://github.com/unofficial-skills/alpha-video'
   logo:
     type: blob.asset
     data:
