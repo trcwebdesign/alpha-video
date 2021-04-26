@@ -1,5 +1,5 @@
 ---
-id: balena-cloud
+id: balena
 title: Balena Cloud
 sidebar_label: Balena Cloud
 ---
