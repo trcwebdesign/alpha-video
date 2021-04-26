@@ -13,6 +13,8 @@ assets:
       url: >-
         https://cdn.discord.me/server/e2392934dda84f1ccd0a192c3260708b164effe38c6b7c3ed4048570e385530f/icon_589eaf8a0b4b64df99a191840ce0e12177cc82b20b724d78991de031ea8f8c5e.jpg
 data:
+  applicationEnvironmentVariables:
+    - subdomain: changeme
   defaultDeviceType: raspberry-pi
   supportedDeviceTypes:
     - raspberry-pi
