@@ -12,7 +12,7 @@ On the next page choose start from scratch.  On the left side click on endpoints
 The domain should now look like this ``` https://pretty-mayfly-37.loca.lt/api ``` . In the dropdown box below make sure to select  ``` My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority ```.
 Once done click the save endpoints button. Now on the left click on interfaces. On the interfaces page turn on audio player and video app then the save interfaces button at the top.
 
-Now on the left click Interaction Model this will open a small menu on the side. Click jason JSON Editor this will take you to the Editor page. 
+Now on the left click Interaction Model this will open a small menu on the side. Click JSON Editor this will take you to the Editor page. 
 
 We now need to upload our interaction.json file, currently only English, German, Italian and Spanish are avalible. Click in the box and delete all the text.
 
