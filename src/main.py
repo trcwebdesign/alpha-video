@@ -32,6 +32,7 @@ log = logging.getLogger('__name__')
 logging.basicConfig(filename=LOG_FILE, level=logging.DEBUG)
 
 
+
 ytdl_options = {
     'format': 'bestaudio/best',
     'restrictfilenames': False,
@@ -55,12 +56,44 @@ app.config.from_mapping(
 )
 
 
+
 print("By AndrewsTech")
 
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/progress')
+def progress():
+    def generate():
+        x = 0
+        while x <= 100:
+            yield "data:" + str(x) + "\n\n"
+            x = x + 10
+            time.sleep(0.5)
+    return Response(generate(), mimetype= 'text/event-stream')
+
+@app.route('/log')
+def progress_log():
+	def generate():
+		for line in Pygtail(LOG_FILE, every_n=1):
+			yield "data:" + str(line) + "\n\n"
+			time.sleep(0.5)
+	return Response(generate(), mimetype= 'text/event-stream')
+
+@app.route('/env')
+def show_env():
+	log.info("route =>'/env' - hit")
+	env = {}
+	for k,v in request.environ.items(): 
+		env[k] = str(v)
+	log.info("route =>'/env' [env]:\n%s" % env)
+	return env
+
+@app.route("/logs", methods=["GET"])
+def logstream():
+    return render_template('logs.html')
 
 ask = Ask(app, '/api')
 
