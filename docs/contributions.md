@@ -5,6 +5,11 @@ sidebar_label: contributions
 slug: /contributions
 ---
 
+### Snipits of other code
+
+Web interface based of [Datta Able - Open-Source Flask Dashboard | AppSeed](https://appseed.us/admin-dashboards/flask-datta-able)
+
+
 ### contributions!
 
 [Andrewstech](http://www.github/andrewstech.com) - Main Dev
