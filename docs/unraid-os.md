@@ -12,7 +12,7 @@ To install Alpha-Video on your Unraid machine you need to open the Apps-Tab whic
 In the Template you will find 1 Variable and one Port.
 
 * The Port you configure doesn't matter, since the App is using the Service [localtunnel](https://github.com/localtunnel/localtunnel).
-:::caution Running this App over your own Domain is currently not supported. :::
+:::caution Running this App over your own Domain is currently not supported.
 
 * The Subdomain you configure should be **over 3 Characters**. If Someone allready uses your adress, a random one will be generated and shown to you in the Container-Logs.
 
