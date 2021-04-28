@@ -24,4 +24,6 @@ Web interface based of [Datta Able - Open-Source Flask Dashboard | AppSeed](http
 
 [Kippenhof](https://github.com/Kippenhof) - Fix spelling [#21](https://github.com/unofficial-skills/alpha-video/pull/21)
 
+DavidS - Translated skill to French language
+
 
