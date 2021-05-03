@@ -19,4 +19,4 @@ then
 else
       echo "LocalTunnel disabled"
 fi
-bash
+
