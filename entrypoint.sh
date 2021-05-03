@@ -7,7 +7,12 @@ echo " / ____ \| |____| |    | |  | |/ ____ \     \  /   _| |_| |__| | |___| |__
 echo "/_/    \_\______|_|    |_|  |_/_/    \_\     \/   |_____|_____/|______\____/ "
 
 echo "For support please visit the Github Project or send a message on our Discord server."
-[  -z "$localtunnel" ] && echo "l" || localtunnel=true
+if [ -z "$localtunnel" ]
+then
+      localtunnel=true
+else
+      echo "startup"
+fi
 echo "set nameserver to 1.1.1.1"
 echo nameserver 1.1.1.1 > /etc/resolv.conf
 echo "Starting Alpha-Video"
