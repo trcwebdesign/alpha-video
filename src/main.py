@@ -171,6 +171,19 @@ def handle_query_intent(query):
 
     return question('noresult')
 
+@ask.on_playback_finished()
+def play_back_finished():
+    result = search_results[1]
+    song_name = result['title']
+    channel_name = result['uploader']
+
+    for format_ in result['formats']:
+        if format_['ext'] == 'm4a':
+            mp3_url = format_['url']
+            playing = render_template('playing', song_name=song_name, channel_name=channel_name)
+            return audio(playing).play(mp3_url)
+    
+    return question('noresult')
 
 
 app.run(host=host, port=port)
