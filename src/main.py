@@ -167,7 +167,7 @@ def handle_query_intent(query):
         if format_['ext'] == 'm4a':
             mp3_url = format_['url']
             playing = render_template('playing', song_name=song_name, channel_name=channel_name)
-            return audio(playing).play(mp3_url).title(song_name)
+            return audio(playing).play(mp3_url)
 
     return question('noresult')
 
