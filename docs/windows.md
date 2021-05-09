@@ -20,4 +20,10 @@ By AndrewsTech
 By AndrewsTech
 
 ```
-s
+This means the skill is running. On the other window you should see the subdomain localtunnel has given you.
+
+You can now continue by clicking [here](https://alpha-video.andrewstech.me/docs/doc4/)
+
+:::caution
+If you close ether of the windows then the skill will stop.
+:::
