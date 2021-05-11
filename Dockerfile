@@ -1,4 +1,5 @@
 FROM andrewstech/alpha-video-baseplate:dev
+RUN npm install -g smee-client
 WORKDIR /app
 COPY entrypoint.sh entrypoint.sh
 RUN chmod 777 entrypoint.sh
