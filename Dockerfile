@@ -3,7 +3,7 @@ RUN npm install -g smee-client
 WORKDIR /app
 COPY entrypoint.sh entrypoint.sh
 RUN chmod 777 entrypoint.sh
-COPY /src /app
+COPY /thealphavideo /app
 EXPOSE 5000
 ENV FLASK_ENV=development
 ENV FLASK_APP=main.py
