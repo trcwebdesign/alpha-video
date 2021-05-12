@@ -44,6 +44,6 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=requirements,
-    package_data={'': ['static/*', 'templates/*']}
+    test_suite="tests",
     entry_points={"console_scripts": ["alpha-video = thealphavideo.__main__:start"]},
 )
