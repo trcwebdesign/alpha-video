@@ -42,7 +42,6 @@ setup(
     author_email=PROJECT_EMAIL,
     packages=PACKAGES,
     include_package_data=True,
-    recursive-include data *
     zip_safe=False,
     install_requires=requirements,
     package_data={'': ['static/*', 'templates/*']}
