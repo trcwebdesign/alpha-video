@@ -45,6 +45,6 @@ setup(
     recursive-include data *
     zip_safe=False,
     install_requires=requirements,
-    test_suite="tests",
+    package_data={'': ['static/*', 'templates/*']}
     entry_points={"console_scripts": ["alpha-video = thealphavideo.__main__:start"]},
 )
