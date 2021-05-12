@@ -23,6 +23,11 @@ def start():
     )
 
 
+if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
+    print('running in a PyInstaller bundle')
+else:
+    print('running source or docker')
+
 ip = '0.0.0.0'  # System Ip
 host = '0.0.0.0'  # doesn't require anything else since we're using ngrok
 port = 5000  # may want to check and make sure this port isn't being used by anything else
