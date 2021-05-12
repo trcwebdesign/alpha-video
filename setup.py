@@ -45,5 +45,5 @@ setup(
     zip_safe=False,
     install_requires=requirements,
     test_suite="tests",
-    entry_points={"console_scripts": ["alpha-video = alphavideo.__main__:start"]},
+    entry_points={"console_scripts": ["alpha-video = thealphavideo.__main__:start"]},
 )
