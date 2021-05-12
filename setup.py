@@ -35,7 +35,7 @@ PACKAGES = find_packages(exclude=["tests", "tests.*"])
 
 setup(
     name=PROJECT_PACKAGE_NAME,
-    version="1.43",
+    version="1.44",
     url=PROJECT_URL,
     project_urls=PROJECT_URLS,
     author=PROJECT_AUTHOR,
