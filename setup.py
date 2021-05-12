@@ -35,13 +35,14 @@ PACKAGES = find_packages(exclude=["tests", "tests.*"])
 
 setup(
     name=PROJECT_PACKAGE_NAME,
-    version="1.44",
+    version="1.45",
     url=PROJECT_URL,
     project_urls=PROJECT_URLS,
     author=PROJECT_AUTHOR,
     author_email=PROJECT_EMAIL,
     packages=PACKAGES,
     include_package_data=True,
+    package_data={'thealphavideo': ['templates/*.html']},
     zip_safe=False,
     install_requires=requirements,
     test_suite="tests",
