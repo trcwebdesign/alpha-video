@@ -12,7 +12,7 @@ from werkzeug.local import LocalProxy, LocalStack
 from jinja2 import BaseLoader, ChoiceLoader, TemplateNotFound
 from flask import current_app, json, request as flask_request, _app_ctx_stack
 
-from . import verifier, logger
+from . import logger
 from .convert import to_date, to_time, to_timedelta
 from .cache import top_stream, set_stream
 import collections
@@ -849,30 +849,7 @@ class Ask(object):
         raw_body = flask_request.data
         alexa_request_payload = json.loads(raw_body)
 
-        if verify:
-            cert_url = flask_request.headers['Signaturecertchainurl']
-            signature = flask_request.headers['Signature']
 
-            # load certificate - this verifies a the certificate url and format under the hood
-            cert = verifier.load_certificate(cert_url)
-            # verify signature
-            verifier.verify_signature(cert, signature, raw_body)
-
-            # verify timestamp
-            raw_timestamp = alexa_request_payload.get('request', {}).get('timestamp')
-            timestamp = self._parse_timestamp(raw_timestamp)
-
-            if not current_app.debug or self.ask_verify_timestamp_debug:
-                verifier.verify_timestamp(timestamp)
-
-            # verify application id
-            try:
-                application_id = alexa_request_payload['session']['application']['applicationId']
-            except KeyError:
-                application_id = alexa_request_payload['context'][
-                    'System']['application']['applicationId']
-            if self.ask_application_id is not None:
-                verifier.verify_application_id(application_id, self.ask_application_id)
 
         return alexa_request_payload
 
