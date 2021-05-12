@@ -8,7 +8,7 @@ with open('requirements.txt') as f:
     requirements = f.read().splitlines()
 
 PROJECT_NAME = "Alpha Video"
-PROJECT_PACKAGE_NAME = "alpha-video"
+PROJECT_PACKAGE_NAME = "alpha_video"
 PROJECT_LICENSE = "Apache License 2.0"
 PROJECT_AUTHOR = "Unofficial-skills"
 PROJECT_COPYRIGHT = f" 2021-{dt.now().year}, {PROJECT_AUTHOR}"
@@ -35,7 +35,7 @@ PACKAGES = find_packages(exclude=["tests", "tests.*"])
 
 setup(
     name=PROJECT_PACKAGE_NAME,
-    version="1.41",
+    version="1.42",
     url=PROJECT_URL,
     project_urls=PROJECT_URLS,
     author=PROJECT_AUTHOR,
