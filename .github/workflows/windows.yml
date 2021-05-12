@@ -17,9 +17,9 @@ jobs:
     - name: Package Application
       uses: JackMcKew/pyinstaller-action-windows@main
       with:
-        path: src
+        path: alpha_video
 
     - uses: actions/upload-artifact@v2
       with:
         name: alpha-video
-        path: src/dist/windows
+        path: alpha_video/dist/windows
