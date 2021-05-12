@@ -8,7 +8,7 @@ with open('requirements.txt') as f:
     requirements = f.read().splitlines()
 
 PROJECT_NAME = "Alpha Video"
-PROJECT_PACKAGE_NAME = "alphavideo"
+PROJECT_PACKAGE_NAME = "alphavideod"
 PROJECT_LICENSE = "Apache License 2.0"
 PROJECT_AUTHOR = "Unofficial-skills"
 PROJECT_COPYRIGHT = f" 2021-{dt.now().year}, {PROJECT_AUTHOR}"
