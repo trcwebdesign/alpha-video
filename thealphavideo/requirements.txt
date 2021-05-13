@@ -6,3 +6,4 @@ Werkzeug==0.16.1
 youtube_dl
 pygtail
 pyfiglet
+Flask-Ask-alphavideo
