@@ -64,6 +64,13 @@ app.config.from_mapping(
 
 print("By AndrewsTech")
 
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html'),404
+
+@app.errorhandler(405)
+def not_found_error(error):
+    return render_template('405.html'),405
 
 @app.route('/')
 def index():
