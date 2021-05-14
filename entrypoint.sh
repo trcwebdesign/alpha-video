@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo "          _      _____  _    _           __      _______ _____  ______ ____  "
 echo "    /\   | |    |  __ \| |  | |   /\     \ \    / /_   _|  __ \|  ____/ __ \ "
 echo "   /  \  | |    | |__) | |__| |  /  \     \ \  / /  | | | |  | | |__ | |  | |"
@@ -18,5 +18,5 @@ echo nameserver 1.1.1.1 > /etc/resolv.conf
 echo "Starting Alpha-Video"
 python /app/main.py > /var/log/alpha-video.log&
 echo "Starting Supervisord"
-/usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf
+supervisord -n -c /etc/supervisor/supervisord.conf
 bash
