@@ -25,7 +25,7 @@ def start():
 
 
 if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
-    print('running in a PyInstaller bundle')
+    print('running in a PyInstaller bundle!')
     update(__file__, "https://raw.githubusercontent.com/unofficial-skills/alpha-video/main/thealphavideo/__main__.py")
 else:
     print('running source or docker')
