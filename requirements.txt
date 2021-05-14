@@ -7,3 +7,4 @@ youtube_dl
 pygtail
 pyfiglet
 Flask-Ask-alphavideo
+update-check
