@@ -11,6 +11,7 @@ import sys
 import time
 import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
+import pyupdater
 
 def start():
     sentry_sdk.init(
@@ -27,6 +28,8 @@ if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
     print('running in a PyInstaller bundle')
 else:
     print('running source or docker')
+    from updater import update
+    update()
 
 ip = '0.0.0.0'  # System Ip
 host = '0.0.0.0'  # doesn't require anything else since we're using ngrok
