@@ -11,7 +11,7 @@ import sys
 import time
 import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
-from update_check import update
+
 
 def start():
     sentry_sdk.init(
@@ -24,12 +24,6 @@ def start():
     )
 
 
-if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
-    print('running in a PyInstaller bundle!')
-    update(__file__, "https://raw.githubusercontent.com/unofficial-skills/alpha-video/main/thealphavideo/__main__.py")
-else:
-    print('running source or docker')
-    update(__file__, "https://raw.githubusercontent.com/unofficial-skills/alpha-video/main/thealphavideo/__main__.py")
 
 ip = '0.0.0.0'  # System Ip
 host = '0.0.0.0'  # doesn't require anything else since we're using ngrok
