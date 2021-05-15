@@ -8,7 +8,7 @@ Alpha-Video now has native support for windows. No dependencies are required.
 
 You can download the latest version of the installer by clicking [here](https://github.com/unofficial-skills/alpha-video/releases/download/1.4/alpha-video.exe).
 
-When you open the program it will ask you to choose your desied sub domain name. One you have entered it a new window will appear displaying 
+When you open the program it will ask you to choose your desied sub domain name. Once you have entered it, a new window will appear displaying 
 
 ```
 By AndrewsTech
