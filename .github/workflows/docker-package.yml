@@ -43,4 +43,5 @@ jobs:
           push: true
           tags: |
             andrewstech/alpha-video:latest
+            docker.pkg.github.com/${{ github.repository }}/alpha-video:${{ github.sha }}
             docker.pkg.github.com/${{ github.repository }}/alpha-video:unstable
