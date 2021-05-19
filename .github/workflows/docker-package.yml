@@ -37,6 +37,5 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64,linux/arm,linux/arm/v6,linux/386
           push: true
-          repository: ndrewstech/alpha-video
-          tags: latest, ${{ steps.version.outputs.release }}
+          tags: andrewstech/alpha-video:latest, andrewstech/alpha-video:${{ steps.version.outputs.release }}
     
