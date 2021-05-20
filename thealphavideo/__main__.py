@@ -176,7 +176,7 @@ def show_env():
 	log.info("route =>'/env' [env]:\n%s" % env)
 	return env
 
-@app.route("/logs", methods=["GET"])
+@app.route("/logstream", methods=["GET"])
 def logstream():
     return render_template('logs.html')
 
