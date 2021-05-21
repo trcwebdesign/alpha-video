@@ -7,10 +7,23 @@ import sqlite3
 import logging
 import datetime
 import os
+import requests
 import sys
 import time
 import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
+
+#versions
+
+version = 1.4
+
+response = requests.get('https://api.andrewstech.me/alpha-video/VERSION/')
+
+if ( version == response.text ):
+   print("You are running the latest version")
+else:
+   print("You have an update")
+
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
