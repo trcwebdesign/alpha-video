@@ -286,6 +286,20 @@ def play_back_finished():
 
     return question('noresult')
 
+@ask.intent('AMAZON.NextIntent')
+def next_song():
+    search_results = session.attributes.get(search_results)
+    result = search_results[1]
+    song_name = result['title']
+    channel_name = result['uploader']
+
+    for format_ in result['formats']:
+        if format_['ext'] == 'm4a':
+            mp3_url = format_['url']
+            playing = render_template('playing', song_name=song_name, channel_name=channel_name)
+            return audio(playing).play(mp3_url)
+
+    return question('noresult')
 
 app.run(host=host, port=port)
 
