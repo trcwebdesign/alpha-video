@@ -9,14 +9,12 @@ echo "/_/    \_\______|_|    |_|  |_/_/    \_\     \/   |_____|_____/|______\___
 echo "For support please visit the Github Project or send a message on our Discord server."
 if [ -z "$localtunnel" ]
 then
-      localtunnel=true
+      export localtunnel=true
 else
       echo "startup"
 fi
 echo "set nameserver to 1.1.1.1"
 echo nameserver 1.1.1.1 > /etc/resolv.conf
-echo "Starting Alpha-Video"
-python /app/__main__.py > /var/log/alpha-video.log&
-echo "Starting Localtunnel"
+echo "Starting"
 /usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf
 bash
