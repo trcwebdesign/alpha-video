@@ -255,7 +255,7 @@ def handle_query_intent(query):
 
     if not search_results:
         noresult = render_template('noresult')
-	session.attributes[search_results] = search_results
+	session.attributes[search_results]=search_results
         return question(noresult)
 
     result = search_results[0]
