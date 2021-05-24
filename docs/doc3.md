@@ -4,10 +4,10 @@ title: Install
 sidebar_label: Install
 ---
 
-Once Docker is fully installed and running. Open a terminal on your device. I use powershell on windows. 
+Once Docker is fully installed and running. Open a terminal on your device.
 
 
-``` docker run -d --restart unless-stopped --name alpha-video -p 5000:5000 -e subdomain=changeme -e localtunnel=true andrewstech/alpha-video:latest ```
+``` docker run -d --restart unless-stopped --name alpha-video -p 5000:5000 -p 9001:9001 -e subdomain=changeme -e localtunnel=true andrewstech/alpha-video:latest ```
 
 
 That command downloads the latest version of the code and runs it in a virtual environment.
