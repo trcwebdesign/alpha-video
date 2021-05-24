@@ -16,7 +16,7 @@ In the Template you will find 1 Variable and one Port.
 Running this App over your own Domain is currently not supported.
 :::
 
-* The Subdomain you configure should be **over 3 Characters**. If Someone allready uses your adress, a random one will be generated and shown to you in the Container-Logs.
+* The Subdomain you configure should be **over 3 Characters**. If Someone already uses your adress, a random one will be generated and shown to you in the Container-Logs.
 
 After you are done with the Configuration you can hit "Apply" and Continue [HERE](https://alpha-video.andrewstech.me/docs/doc4)
 
