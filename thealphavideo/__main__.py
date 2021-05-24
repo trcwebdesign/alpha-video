@@ -13,16 +13,16 @@ import time
 import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
 
-#versions
+# versions
 
 version = 1.4
 
 response = requests.get('https://api.andrewstech.me/alpha-video/VERSION/')
 
-if ( version == response.text ):
-   print("You are running the latest version")
+if (version == response.text):
+    print("You are running the latest version")
 else:
-   print("You have an update")
+    print("You have an update")
 
 
 def get_db_connection():
@@ -40,6 +40,7 @@ def get_post(post_id):
         abort(404)
     return post
 
+
 def start():
     sentry_sdk.init(
         dsn="https://d781c09d67f34a05b2b2d89193f4f2a0@o575799.ingest.sentry.io/5728581",
@@ -51,8 +52,6 @@ def start():
     )
 
 
-
-
 ip = '0.0.0.0'  # System Ip
 host = '0.0.0.0'  # doesn't require anything else since we're using ngrok
 port = 5000  # may want to check and make sure this port isn't being used by anything else
@@ -60,8 +59,6 @@ port = 5000  # may want to check and make sure this port isn't being used by any
 LOG_FILE = 'app.log'
 log = logging.getLogger('__name__')
 logging.basicConfig(filename=LOG_FILE, level=logging.DEBUG)
-
-
 
 ytdl_options = {
     'format': 'bestaudio/best',
@@ -82,24 +79,26 @@ app.config["DEBUG"] = os.environ.get("FLASK_DEBUG", True)
 app.config["JSON_AS_ASCII"] = False
 app.config['SECRET_KEY'] = 'dev'
 app.config.from_mapping(
-        BASE_URL="http://localhost:5000",
+    BASE_URL="http://localhost:5000",
 )
-
-
 
 print("By AndrewsTech")
 
+
 @app.errorhandler(404)
 def not_found_error(error):
-    return render_template('404.html'),404
+    return render_template('404.html'), 404
+
 
 @app.errorhandler(405)
 def not_found_error(error):
-    return render_template('405.html'),405
+    return render_template('405.html'), 405
+
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/playlist')
 def playlist():
@@ -107,6 +106,7 @@ def playlist():
     posts = conn.execute('SELECT * FROM posts').fetchall()
     conn.close()
     return render_template('playlist.html', posts=posts)
+
 
 @app.route('/create', methods=('GET', 'POST'))
 def create():
@@ -126,6 +126,7 @@ def create():
 
     return render_template('create.html')
 
+
 @app.route('/<int:id>/delete', methods=('GET',))
 def delete(id):
     post = get_post(id)
@@ -136,10 +137,12 @@ def delete(id):
     flash('"{}" was successfully deleted!'.format(post['title']))
     return redirect(url_for('playlist'))
 
+
 @app.route('/<int:post_id>')
 def post(post_id):
     post = get_post(post_id)
     return render_template('post.html', post=post)
+
 
 @app.route('/<int:id>/edit', methods=('GET', 'POST'))
 def edit(id):
@@ -162,6 +165,7 @@ def edit(id):
 
     return render_template('edit.html', post=post)
 
+
 @app.route('/progress')
 def progress():
     def generate():
@@ -170,28 +174,34 @@ def progress():
             yield "data:" + str(x) + "\n\n"
             x = x + 10
             time.sleep(0.5)
-    return Response(generate(), mimetype= 'text/event-stream')
+
+    return Response(generate(), mimetype='text/event-stream')
+
 
 @app.route('/log')
 def progress_log():
-	def generate():
-		for line in Pygtail(LOG_FILE, every_n=1):
-			yield "data:" + str(line) + "\n\n"
-			time.sleep(0.5)
-	return Response(generate(), mimetype= 'text/event-stream')
+    def generate():
+        for line in Pygtail(LOG_FILE, every_n=1):
+            yield "data:" + str(line) + "\n\n"
+            time.sleep(0.5)
+
+    return Response(generate(), mimetype='text/event-stream')
+
 
 @app.route('/env')
 def show_env():
-	log.info("route =>'/env' - hit")
-	env = {}
-	for k,v in request.environ.items(): 
-		env[k] = str(v)
-	log.info("route =>'/env' [env]:\n%s" % env)
-	return env
+    log.info("route =>'/env' - hit")
+    env = {}
+    for k, v in request.environ.items():
+        env[k] = str(v)
+    log.info("route =>'/env' [env]:\n%s" % env)
+    return env
+
 
 @app.route("/logstream", methods=["GET"])
 def logstream():
     return render_template('logs.html')
+
 
 ask = Ask(app, '/api')
 
@@ -246,7 +256,6 @@ def handle_help_intent():
 
 @ask.intent('QueryIntent', mapping={'query': 'Query'})
 def handle_query_intent(query):
-
     if not query or 'query' in convert_errors:
         return question('no results found, try another search query')
 
@@ -255,7 +264,7 @@ def handle_query_intent(query):
 
     if not search_results:
         noresult = render_template('noresult')
-	session.attributes[search_results]=search_results
+        session.attributes[search_results] = search_results
         return question(noresult)
 
     result = search_results[0]
@@ -270,6 +279,7 @@ def handle_query_intent(query):
 
     return question('noresult')
 
+
 @ask.on_playback_finished()
 def play_back_finished():
     search_results = session.attributes.get(search_results)
@@ -282,7 +292,7 @@ def play_back_finished():
             mp3_url = format_['url']
             playing = render_template('playing', song_name=song_name, channel_name=channel_name)
             return audio(playing).play(mp3_url)
-    
+
     return question('noresult')
 
 
