@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, flash, redirect, Response
+from flask import Flask, render_template, request, url_for, flash, redirect, Response, session
 from pygtail import Pygtail
 from flask_ask_alphavideo import Ask, question, statement, convert_errors, audio
 from youtube_dl import YoutubeDL
@@ -255,6 +255,7 @@ def handle_query_intent(query):
 
     if not search_results:
         noresult = render_template('noresult')
+	session.attributes[search_results] = search_results
         return question(noresult)
 
     result = search_results[0]
@@ -271,6 +272,7 @@ def handle_query_intent(query):
 
 @ask.on_playback_finished()
 def play_back_finished():
+    search_results = session.attributes.get(search_results)
     result = search_results[1]
     song_name = result['title']
     channel_name = result['uploader']
