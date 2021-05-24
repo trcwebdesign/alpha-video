@@ -240,7 +240,7 @@ def handle_help_intent():
 def handle_query_intent(query):
 
     if not query or 'query' in convert_errors:
-	session.attributes[search_KEY] = query
+	session.attributes[search_KEY] = query	
 	return question('no results found, try another search query')
 
     data = ytdl.extract_info(f"ytsearch:{query}", download=False)
